@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Test Escaping
+        </title>
+        <script>
+            function validateForm() {
+            	alert("test");
+    			var x = document.forms["myForm"]["testBox"].value;
+                //test = document.getElementById('okidoo');
+                //test.innerHTML = escapeHtml(x);
+   				document.write(escapeHtml(x));
+
+    }
+    function escapeHtml(text) {
+    newText = text.replace(/[\"&<>\/]/gi, function (a) {
+        return { '"': '&quot;', '&': '&amp;', '<': '&lt;', '>': '&gt;', '/': '&#x2F;' }[a];});
+    //newText = text.replace(/[\"&<>/]/gi, "X")
+    alert(newText);
+    return(newText);
+}
+        </script>
+    </head>
+    <body>
+        <form name="myForm">
+            Test:
+            <input name="testBox" type="text">
+               <input id="clickMe" type="button" value="clickme" onclick="validateForm();" />
+            </input>
+        </form>
+        <p id="okidoo">This is where we put the evil script</p>
+    </body>
+</html>

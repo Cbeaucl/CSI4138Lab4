@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Test No Escaping
+        </title>
+        <script>
+            function validateForm() {
+            	alert("test");
+            	var x = document.forms["myForm"]["testBox"].value;
+            	test = document.getElementById('okidoo');
+				document.write(x);    }
+        </script>
+    </head>
+    <body>
+        <form name="myForm">
+            Test:
+            <input name="testBox" type="text">
+               <input id="clickMe" type="button" value="clickme" onclick="validateForm();" />
+            </input>
+        </form>
+        <p id="okidoo">This is where we put the evil script</p>
+    </body>
+</html>
